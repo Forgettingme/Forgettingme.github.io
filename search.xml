@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客搭建</title>
+    <title>开始</title>
     <url>/2022/02/26/article-title/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>经历了两天的搭建，不断的摸索和百度谷歌搜索，自己的博客也总算是搭建成功了，虽然还很菜，但也总算是跨出了第一步。</p>
+]]></content>
+      <categories>
+        <category>搭建</category>
+      </categories>
       <tags>
-        <tag>调试中</tag>
+        <tag>运行中</tag>
       </tags>
   </entry>
 </search>
