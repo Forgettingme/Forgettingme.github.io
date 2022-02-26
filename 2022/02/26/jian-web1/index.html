@@ -434,9 +434,9 @@ if(isset($_GET[&#39;file&#39;]))&amp;#123;
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>发现 include 包含函数，选择使用 data 伪协议 data://text/plain,构造 payload：?file=data://text/plain,<?php phpinfo();?>成功出现 phpinfo()页面</p>
-<p><img src="D:\study\program\blog\source\images\web_78a.png"></p>
+<p><img src="/images/web_78a.png"></p>
 <p>然后输如查询目录的指令，发现有 flag.php 文件：?file=data://text/plain,<?php system("ls");?></p>
-<p><img src="D:\study\program\blog\source\images\web_78b.png"></p>
+<p><img src="/images/web_78b.png">]</p>
 <p>使用 tac 命令读取文件，成功读取 flag:ctfshow{7bc171e1-06c8-4e6c-8e13-33585ea3d0be}</p>
 <h4 id="web79"><a href="#web79" class="headerlink" title="web79"></a>web79</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 if(isset($_GET[&#39;file&#39;]))&#123;
@@ -470,9 +470,9 @@ post: &lt;?php system(&quot;ls&quot;)?&gt;<span aria-hidden="true" class="line-n
 <pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;489ea2b8-3fb5-4cc6-b9d6-7fc5608c320b.challenge.ctf.show&#x2F;?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用 bp 抓包，将🐎写再UA头里</p>
-<p><img src="D:\study\program\blog\source\images\web_80a.png"></p>
-<p><img src="D:\study\program\blog\source\images\web_80b.png"></p>
-<p><img src="D:\study\program\blog\source\images\web_80c.png"></p>
+<p><img src="/images/web_80a.png"></p>
+<p><img src="/images/web_80b.png"></p>
+<p><img src="/images/web_80c.png"></p>
 <h4 id="web81"><a href="#web81" class="headerlink" title="web81"></a>web81</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 if(isset($_GET[&#39;file&#39;]))&#123;
     $file &#x3D; $_GET[&#39;file&#39;];
@@ -485,7 +485,7 @@ if(isset($_GET[&#39;file&#39;]))&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>发现这次还将冒号给过滤了，不过却可以继续访问 var/log/nginx/access.log 日志文件进行传🐎,得到flag</p>
-<p><img src="D:\study\program\blog\source\images\web_81.png"></p>
+<p><img src="/images/web_81.png"></p>
 <h4 id="web82-86"><a href="#web82-86" class="headerlink" title="web82-86"></a>web82-86</h4><p>条件竞争，限制了并发，先做后面的。</p>
 
                 

